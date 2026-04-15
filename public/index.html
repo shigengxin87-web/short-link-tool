@@ -45,9 +45,22 @@
     </section>
 
     <section id="adminApp" hidden>
+      <header class="app-topbar">
+        <div class="brand-lockup">
+          <p class="eyebrow">SELF-HOSTED URL SHORTENER</p>
+          <h2>短链接工作台</h2>
+        </div>
+        <div class="account-controls">
+          <div class="top-user">
+            <p class="user-caption">当前账号</p>
+            <p id="userSummary" class="user-summary">未登录</p>
+          </div>
+          <button id="logoutBtn" class="ghost-btn" type="button">退出登录</button>
+        </div>
+      </header>
+
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">SELF-HOSTED URL SHORTENER</p>
           <h1>把冗长链接压成<br>更好发给客户的短链接</h1>
           <p class="intro">
             不依赖第三方收费平台，自己就能生成、管理、统计短链。
@@ -56,13 +69,6 @@
           <div class="notify-card">
             <p class="notify-title">完成提醒</p>
             <p id="notifyStatus" class="notify-status">生成成功后会播放提示音，并尝试发送浏览器提醒。</p>
-          </div>
-          <div class="hero-user">
-            <p class="user-caption">当前账号</p>
-            <p id="userSummary" class="user-summary">未登录</p>
-          </div>
-          <div class="hero-actions">
-            <button id="logoutBtn" class="ghost-btn" type="button">退出登录</button>
           </div>
         </div>
         <div class="hero-card">
