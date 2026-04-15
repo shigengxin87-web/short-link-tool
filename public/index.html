@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>短链接工具</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section id="authPanel" class="login-panel">
+      <div class="login-card">
+        <div class="auth-head">
+          <p class="eyebrow">PRIVATE ACCESS</p>
+          <h2>进入你的独立后台</h2>
+          <p class="login-intro">每个人登录后只看到自己的短链。公开短链接仍可正常被客户访问和跳转。</p>
+        </div>
+
+        <div class="auth-switch">
+          <button type="button" class="auth-tab is-active" data-mode="login">登录</button>
+          <button type="button" class="auth-tab" data-mode="register">注册</button>
+        </div>
+
+        <form id="authForm" class="login-form">
+          <label id="nameField" hidden>
+            <span>昵称</span>
+            <input id="name" name="name" type="text" placeholder="例如 小王 / 市场组" autocomplete="nickname">
+          </label>
+          <label>
+            <span>邮箱</span>
+            <input id="email" name="email" type="email" placeholder="请输入邮箱" autocomplete="email">
+          </label>
+          <label>
+            <span>密码</span>
+            <input id="password" name="password" type="password" placeholder="至少 6 位" autocomplete="current-password">
+          </label>
+          <label id="inviteField" hidden>
+            <span>邀请码</span>
+            <input id="inviteCode" name="inviteCode" type="text" placeholder="如果团队设置了邀请码，请填这里">
+          </label>
+          <button type="submit" id="authBtn">登录管理台</button>
+          <p id="authMessage" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="adminApp" hidden>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">SELF-HOSTED URL SHORTENER</p>
+          <h1>把冗长链接压成<br>更好发给客户的短链接</h1>
+          <p class="intro">
+            不依赖第三方收费平台，自己就能生成、管理、统计短链。
+            适合课程页、活动页、报价页、企微欢迎语、短信和海报二维码。
+          </p>
+          <div class="notify-card">
+            <p class="notify-title">完成提醒</p>
+            <p id="notifyStatus" class="notify-status">生成成功后会播放提示音，并尝试发送浏览器提醒。</p>
+          </div>
+          <div class="hero-user">
+            <p class="user-caption">当前账号</p>
+            <p id="userSummary" class="user-summary">未登录</p>
+          </div>
+          <div class="hero-actions">
+            <button id="logoutBtn" class="ghost-btn" type="button">退出登录</button>
+          </div>
+        </div>
+        <div class="hero-card">
+          <form id="create-form" class="form-card">
+            <label>
+              <span>长链接</span>
+              <textarea id="longUrl" name="longUrl" rows="4" placeholder="粘贴原始链接，例如 https://example.com/very/long/path?utm_source=wechat"></textarea>
+            </label>
+            <div class="grid-two">
+              <label>
+                <span>自定义后缀</span>
+                <input id="customCode" name="customCode" type="text" placeholder="可选，例如 vip2026">
+              </label>
+              <label>
+                <span>备注</span>
+                <input id="note" name="note" type="text" placeholder="可选，例如 4月活动海报">
+              </label>
+            </div>
+            <button type="submit" id="submitBtn">生成短链接</button>
+            <p id="formMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">LINKS</p>
+            <h2>我的短链管理台</h2>
+          </div>
+          <button id="refreshBtn" class="ghost-btn" type="button">刷新列表</button>
+        </div>
+        <div id="summary" class="summary"></div>
+        <div id="emptyState" class="empty-state">你还没有短链接，先在上面生成一个试试。</div>
+        <div id="list" class="link-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <template id="linkTemplate">
+    <article class="link-card">
+      <div class="link-main">
+        <div class="link-top">
+          <a class="short-link" target="_blank" rel="noreferrer"></a>
+          <span class="badge"></span>
+        </div>
+        <p class="long-link"></p>
+        <p class="meta"></p>
+      </div>
+      <div class="actions">
+        <button class="copy-btn" type="button">复制短链</button>
+        <a class="open-btn" target="_blank" rel="noreferrer">打开原链接</a>
+        <button class="delete-btn danger" type="button">删除</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="/app.js"></script>
+</body>
+</html>
