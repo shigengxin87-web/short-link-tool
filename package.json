@@ -1,0 +1,15 @@
+{
+  "name": "short-link-tool",
+  "version": "1.0.0",
+  "description": "A self-hosted short link generator with a simple admin page.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "short-link",
+    "url-shortener",
+    "self-hosted"
+  ],
+  "license": "MIT"
+}
