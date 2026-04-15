@@ -396,11 +396,20 @@ button:hover,
   color: var(--good);
 }
 
+.open-short-btn,
 .open-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+}
+
+.open-short-btn {
+  background: rgba(191, 91, 44, 0.12);
+  color: var(--accent-deep);
+}
+
+.open-btn {
   background: rgba(47, 35, 24, 0.08);
   color: var(--text);
 }

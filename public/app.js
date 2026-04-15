@@ -195,6 +195,7 @@ function renderLinks(links) {
     const longLink = fragment.querySelector(".long-link");
     const meta = fragment.querySelector(".meta");
     const copyBtn = fragment.querySelector(".copy-btn");
+    const openShortBtn = fragment.querySelector(".open-short-btn");
     const openBtn = fragment.querySelector(".open-btn");
     const deleteBtn = fragment.querySelector(".delete-btn");
 
@@ -218,6 +219,8 @@ function renderLinks(links) {
 
     openBtn.href = item.longUrl;
     openBtn.textContent = "打开原链接";
+    openShortBtn.href = item.shortUrl;
+    openShortBtn.textContent = "打开短链接";
 
     deleteBtn.addEventListener("click", async () => {
       const confirmed = window.confirm(`确认删除短链 ${item.shortUrl} 吗？`);
