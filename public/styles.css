@@ -99,6 +99,12 @@ body {
   font-size: clamp(24px, 3vw, 34px);
 }
 
+.topbar-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .account-controls {
   display: flex;
   align-items: center;
@@ -107,37 +113,18 @@ body {
   justify-content: flex-end;
 }
 
-.hero {
+.dashboard-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
   gap: 24px;
-  align-items: stretch;
+  align-items: start;
 }
 
-.hero-copy,
-.hero-card,
 .panel {
   background: var(--panel);
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow: var(--shadow);
   backdrop-filter: blur(14px);
-}
-
-.hero-copy {
-  padding: 48px;
-  border-radius: 36px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-copy::after {
-  content: "";
-  position: absolute;
-  inset: auto -60px -80px auto;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(191, 91, 44, 0.22), transparent 70%);
 }
 
 .eyebrow,
@@ -171,6 +158,11 @@ h2 {
   color: var(--muted);
 }
 
+.compact-intro {
+  font-size: 15px;
+  max-width: none;
+}
+
 .notify-card {
   margin-top: 26px;
   padding: 16px 18px;
@@ -179,6 +171,11 @@ h2 {
   border: 1px solid rgba(191, 91, 44, 0.16);
   width: fit-content;
   max-width: 100%;
+}
+
+.flush-card {
+  margin-top: 18px;
+  width: 100%;
 }
 
 .notify-title {
@@ -213,11 +210,6 @@ h2 {
   margin: 0;
   font-weight: 700;
   word-break: break-all;
-}
-
-.hero-card {
-  border-radius: 36px;
-  padding: 22px;
 }
 
 .form-card {
@@ -318,12 +310,21 @@ button:hover,
   padding: 26px;
 }
 
+.create-panel,
+.side-panel {
+  margin-top: 0;
+}
+
 .panel-head {
   display: flex;
   justify-content: space-between;
   gap: 16px;
   align-items: center;
   margin-bottom: 18px;
+}
+
+.compact-head {
+  margin-bottom: 12px;
 }
 
 .summary {
@@ -443,7 +444,7 @@ button:hover,
     justify-content: space-between;
   }
 
-  .hero {
+  .dashboard-grid {
     grid-template-columns: 1fr;
   }
 
@@ -467,19 +468,12 @@ button:hover,
     align-items: stretch;
   }
 
-  .hero-copy,
-  .hero-card,
   .panel {
     border-radius: 26px;
   }
 
-  .hero-copy,
   .panel {
     padding: 22px;
-  }
-
-  .hero-card {
-    padding: 14px;
   }
 
   .form-card {
